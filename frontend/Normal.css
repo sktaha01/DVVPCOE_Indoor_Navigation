@@ -1,3 +1,7 @@
+/* GLOBAL */
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
     background: white;
@@ -40,7 +44,6 @@ body {
 .title h1 {
     margin: 0;
     font-size: 24px;
-    line-height: 1.1;
     font-weight: 800;
 }
 
@@ -48,13 +51,11 @@ body {
     margin: 0;
     font-size: 14px;
     color: #e8eef8;
-    line-height: 1.1;
 }
 
 /* NAVBAR */
 .navbar {
     display: flex;
-    align-items: center;
     gap: 10px;
 }
 
@@ -68,160 +69,59 @@ body {
     transition: 0.3s;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar .active-nav {
     background: white;
     color: #1A3A6B;
-}
-
-.navbar a.active-nav {
-    background: white;
-    color: #1A3A6B;
-    box-shadow: 0 0 12px rgba(255,255,255,0.8);
 }
 
 /* INSTRUCTION */
 .instruction {
     width: fit-content;
-    margin: 20px auto 14px auto;
-    padding: 10px 28px;
+    margin: 20px auto;
+    padding: 10px 25px;
     background: white;
-    color: #1A3A6B;
-    border-radius: 12px;
-    font-size: 17px;
-    font-weight: 700;
+    border-radius: 10px;
     display: flex;
+    gap: 15px;
     align-items: center;
-    gap: 22px;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e6e6e6;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
 .step {
-    width: 31px;
-    height: 31px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
     font-weight: bold;
 }
 
-.step1 {
-    background: #20b86b;
-    color: white;
-}
-
-.step2 {
-    background: #d92530;
-    color: white;
-}
-
-.step3 {
-    background: #1688df;
-    color: white;
-}
-
-.divider {
-    color: black;
-    font-size: 22px;
-    font-weight: bold;
-}
+.step1 { background: green; color: white; }
+.step2 { background: red; color: white; }
+.step3 { background: blue; color: white; }
 
 /* CANVAS */
 .canvas-container {
     width: 92%;
-    margin: 15px auto 0 auto;
-    background: white;
+    margin: 10px auto;
 }
 
 canvas {
     display: block;
     width: 100%;
     height: auto;
-    border: 1px solid #d5d5d5;
-    cursor: pointer;
+    border: 1px solid #ccc;
     background: white;
+
+    cursor: crosshair;          /* precise targeting */
+    transition: 0.2s;
 }
 
-/* FLOOR CONTROLS BELOW CANVAS */
-.floor-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    margin: 18px auto 8px auto;
-}
-
-.floor-controls button {
-    padding: 10px 24px;
-    min-width: 135px;
-    border: 2px solid #1A3A6B;
-    border-radius: 25px;
-    background: white;
-    color: #1A3A6B;
-    font-size: 15px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.floor-controls button:hover {
-    background: #1A3A6B;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(26,58,107,0.35);
-}
-
-.floor-controls button.active-floor {
-    background: #1A3A6B;
-    color: white;
-    box-shadow: 0 0 16px rgba(26,58,107,0.6);
-    transform: scale(1.04);
-}
-
-.floor-controls .reset-btn {
-    background: #e53935;
-    color: white;
-    border-color: #e53935;
-}
-
-.floor-controls .reset-btn:hover {
-    background: white;
-    color: #e53935;
-}
-
-/* FOOTER */
-.footer {
-    background: #1A3A6B;
-    color: white;
-    text-align: center;
-    padding: 14px 10px;
-    font-size: 15px;
-    margin-top: 16px;
-}
-
-.footer p {
-    margin: 4px 0;
-}
-/* NAVBAR */
-.navbar {
-    display: flex;
-    gap: 12px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.navbar a:hover,
-.navbar .active-nav {
-    background: white;
-    color: #1A3A6B;
+/* when hovering */
+canvas:hover {
+    cursor: url('cursor.png'), pointer;            /* clickable feel */
 }
 
 /* FLOOR BUTTONS */
@@ -239,6 +139,12 @@ canvas {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+.floor-controls button:hover {
+    background: #1A3A6B;
+    color: white;
 }
 
 .floor-controls button.active-floor {
@@ -246,24 +152,19 @@ canvas {
     color: white;
 }
 
-.reset-btn {
-    background: red !important;
-    color: white !important;
-}
-
-/* RESET BUTTON (FIXED HOVER) */
+/* RESET BUTTON */
 .reset-btn {
     background: #e53935 !important;
     color: white !important;
     border: 2px solid #e53935 !important;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .reset-btn:hover {
     background: white !important;
     color: #e53935 !important;
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 15px rgba(229, 57, 53, 0.7);
+    box-shadow: 0 0 15px rgba(229,57,53,0.7);
 }
 
 /* SECTION */
@@ -273,11 +174,7 @@ canvas {
     text-align: center;
 }
 
-.section h2 {
-    margin-bottom: 20px;
-}
-
-/* CARDS */
+/* TECHNOLOGY CARDS */
 .card-container {
     display: flex;
     justify-content: center;
@@ -292,44 +189,69 @@ canvas {
     color: #1A3A6B;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    transition: 0.3s;
 }
 
-.card h3 {
-    margin-bottom: 10px;
-}
-
-/* HOVER EFFECT */
 .card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 15px 30px rgba(0,0,0,0.35),
                 0 0 10px rgba(26,58,107,0.4);
 }
 
-/* TEAM */
+/* TECH ICON */
+.tech-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* TEAM SECTION (FIXED SIDE-BY-SIDE) */
 .team-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;        /* keeps all in one line */
+    overflow-x: auto;         /* scroll if needed */
+    padding: 10px;
 }
 
 .team-card {
-    width: 200px;
-    padding: 15px;
+    min-width: 180px;
+    padding: 18px;
     background: white;
     color: #1A3A6B;
-    border-radius: 12px;
+    border-radius: 14px;
+    text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    transition: 0.3s;
 }
 
 .team-card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 15px 30px rgba(0,0,0,0.35),
                 0 0 10px rgba(26,58,107,0.4);
+}
+
+.team-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* GUIDANCE (GLASS EFFECT) */
+.guidance {
+    text-align: center;
+    margin: 20px auto;
+    padding: 16px 28px;
+    width: fit-content;
+    background: rgba(255,255,255,0.25);
+    color: #1A3A6B;
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.guidance:hover {
+    transform: translateY(-8px) scale(1.04);
 }
 
 /* FOOTER */
@@ -339,4 +261,15 @@ canvas {
     text-align: center;
     padding: 15px;
     margin-top: 30px;
+}
+/* FADE + SLIDE ANIMATION */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-slide.show {
+    opacity: 1;
+    transform: translateY(0);
 }

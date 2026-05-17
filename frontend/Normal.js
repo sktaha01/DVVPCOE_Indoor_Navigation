@@ -359,3 +359,19 @@ window.onresize = resizeCanvas;
   changeFloor(0);
   loop();
 })();
+
+const animatedSections = document.querySelectorAll(".fade-slide");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+animatedSections.forEach(section => {
+  observer.observe(section);
+});
