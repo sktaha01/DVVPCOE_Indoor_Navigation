@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Indoor Navigation</title>
+  <link rel="stylesheet" href="Normal.css">
+</head>
+
+<body>
+
+<div class="header">
+
+  <a href="index.html" class="title-link">
+    <div class="title">
+      <img src="logo.png" class="nav-logo" alt="Logo">
+
+      <div>
+        <h1>DVVPCOE</h1>
+        <p>Smart Campus Navigation</p>
+      </div>
+    </div>
+  </a>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#">360 View</a>
+    <a href="Normal.html" class="active-nav">Normal View</a>
+    <a href="#">Street View</a>
+    <a href="#">Satellite View</a>
+    <a href="#">About</a>
+  </div>
+
+</div>
+
+<div class="instruction">
+  <span class="step step1">1</span> Select Source
+  <span class="divider">→</span>
+  <span class="step step2">2</span> Select Destination
+  <span class="divider">→</span>
+  <span class="step step3">3</span> Follow Navigation
+</div>
+
+<div class="canvas-container">
+  <canvas id="canvas"></canvas>
+</div>
+
+<div class="floor-controls">
+  <button onclick="changeFloor(0, true)">Ground Floor</button>
+  <button onclick="changeFloor(1, true)">First Floor</button>
+  <button onclick="changeFloor(2, true)">Second Floor</button>
+  <button class="reset-btn" onclick="resetNavigation()">Reset</button>
+</div>
+
+<!-- TECHNOLOGY SECTION -->
+<div class="section">
+  <h2>Technologies & Algorithms Used</h2>
+
+  <div class="card-container">
+
+    <div class="card">
+      <h3>Frontend</h3>
+      <p>HTML, CSS, JavaScript, Canvas API</p>
+    </div>
+
+    <div class="card">
+      <h3>Backend</h3>
+      <p>Spring Boot, REST API, MySQL</p>
+    </div>
+
+    <div class="card">
+      <h3>Algorithm</h3>
+      <p>BFS (Breadth First Search) for shortest path finding</p>
+    </div>
+
+    <div class="card">
+      <h3>Multi-Floor Logic</h3>
+      <p>Stair-based floor transitions with grid mapping</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- TEAM SECTION -->
+<div class="section">
+  <h2>Team Members</h2>
+
+  <div class="team-container">
+
+    <div class="team-card">
+      <h3>Taha Shaikh</h3>
+      <p>Full Stack Developer</p>
+      <p>BE-IT</p>
+    </div>
+
+    <div class="team-card">
+      <h3>Rohan Varpe</h3>
+      <p>Full Stack Developer</p>
+      <p>BE-IT</p>
+    </div>
+
+    <div class="team-card">
+      <h3>Shreyash Sukhadhan</h3>
+      <p>Full Stack Developer</p>
+      <p>BE-IT</p>
+    </div>
+
+    <div class="team-card">
+      <h3>Chandni Shaikh</h3>
+      <p>Full Stack Developer</p>
+      <p>BE-IT</p>
+    </div>
+
+    <div class="team-card">
+      <h3>Swarangi Aher</h3>
+      <p>Full Stack Developer</p>
+      <p>BE-IT</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 Team Titans. All Rights Reserved.</p>
+  <p>Address: 5MJQ+GW3, MIDC, Vilad Ghat, Wadgaon Gupta, Maharashtra 414111</p>
+  <p>Email: teamtitans@gmail.com | Contact: +91 9876543210</p>
+</div>
+
+<script src="Normal.js"></script>
+
+</body>
+</html>
